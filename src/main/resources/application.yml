@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: user-service
+    freemarker:
+        enabled: false
+    datasource:
+        url: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
+    jpa:
+        show_sql: true
