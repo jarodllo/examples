@@ -14,7 +14,13 @@ public class DeleteExpenseService {
     ExpenseRepository expenseRepository;
 
     public void execute(Long id) {
+
         Expense expense = expenseRepository.findOne(id);
+
+        if(expense == null) {
+            //throw new ExpenseNotExistsException();
+        }
+
         expenseRepository.delete(expense);
     }
 

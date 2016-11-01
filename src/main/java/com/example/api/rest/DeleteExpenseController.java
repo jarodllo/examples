@@ -15,7 +15,6 @@ public class DeleteExpenseController {
     @DeleteMapping("/expenses/{id}")
     public void deleteAction(@PathVariable Long id) {
 
-        //I use Expense entity like a view model
         deleteExpenseService.execute(id);
 
     }

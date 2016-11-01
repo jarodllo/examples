@@ -1,9 +1,8 @@
 package com.example.api.rest;
 
+import com.example.application.service.ViewExpensesService;
 import com.example.domain.Expense;
-import com.example.domain.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
@@ -12,14 +11,12 @@ import java.util.List;
 public class ViewExpensesController {
 
     @Autowired
-    ExpenseRepository expenseRepository;
+    ViewExpensesService viewExpensesService;
 
     @GetMapping("/expenses/")
-    public List<Expense> viewALLExpenseAction(Model model) {
+    public List<Expense> viewAllExpenseAction() {
 
-        List<Expense> expenses = expenseRepository.findAll();
-
-        model.addAttribute("expense", expenses);
+        List<Expense> expenses = viewExpensesService.execute();
 
         return expenses;
     }
